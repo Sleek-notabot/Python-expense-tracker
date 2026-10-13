@@ -19,8 +19,11 @@ while True:
     print("Oya." "\n Now wetin you wan do: ")
     for index,option in enumerate(options, start=1):
         print(f"{index}  {option}")
-
-    choice = int(input("Choose an option (1-5): "))    
+    try:
+        choice = int(input("Choose an option (1-5): "))    
+    except ValueError:
+        print("Enter number 1-5 brr!!!")
+        continue
     if choice == 1:
         print(f"Expense \nChoose one below") 
         for index,category in enumerate(categories, start=1):
@@ -81,11 +84,10 @@ while True:
             description_for_other = str(input("Add description: "))
             print(f"Amount: ₦{amount_for_other:,}\nDescription: {description_for_other}")
             print("Expense added successfully!")
-            break
 
     elif choice == 2:
         print("Income")
-        Income_amount = int(input("How much you earn: "))
+        Income_amount += int(input("How much you earn: "))
         while Income_amount <= 0:
             print("Amount must be greater than zero!")
             Income_amount = int(input("How much you earn: "))
