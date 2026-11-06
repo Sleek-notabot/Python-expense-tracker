@@ -3,9 +3,9 @@ time = datetime.now()
 print(time)
 
 print("Welcome to your expense tracker!" "\n This one go help you track and manage how you take dey spend your funds because e get where you go put money wey you dey collect, Wetin you spend am on, How much you don spend so far and how much remain..." "\n Use am... It's for your good!")
-start = input("Enter y to continue: ")
-while start.lower() != "y":
-    start = input("Type y brr: ")
+start = input("Enter start to continue: ")
+while start.lower() != "start":
+    start = input("Just type start brr: ")
 options = ["Add expense", "Add Income", "View Balance", "Summary by category", "Exit"]
 categories = ["Transport", "Food", "Data", "Rent", "Other"]
 Income_amount = 0
@@ -16,13 +16,15 @@ Data_total = 0
 Rent_total = 0
 other_total = 0
 while True:
-    print("Oya." "\n Now wetin you wan do: ")
+    print("Oya." "\nNow wetin you wan do: ")
     for index,option in enumerate(options, start=1):
         print(f"{index}  {option}")
     try:
         choice = int(input("Choose an option (1-5): "))    
     except ValueError:
         print("Enter number 1-5 brr!!!")
+    if choice > 5 or choice < 1:
+        print("Enter 1-5 !!! (Lke number ONE to FIVE)")
         continue
     if choice == 1:
         print(f"Expense \nChoose one below") 
